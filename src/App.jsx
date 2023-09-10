@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Keypad from "./components/keypad";
+import NumberFormat from "./utils/NumberFormat";
 
 function App() {
   const [param, setParam] = useState("");
@@ -11,8 +12,6 @@ function App() {
       setParam("");
     } else if (v === "⇦") {
       setParam(param.substring(0, param.length - 1));
-    } else if (param.length >= 20) {
-      return;
     } else if (v === "=") {
       try {
         const result = eval(param.replaceAll("X", "*"));
@@ -26,9 +25,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <div className="wrapper-results">
-          <p className="param">{param}</p>
-        </div>
+        <div className="wrapper-results">{NumberFormat(param)}</div>
         <div className="keypads">
           {keypads.map((v, i) => (
             <div key={v}>

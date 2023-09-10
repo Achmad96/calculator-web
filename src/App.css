@@ -35,25 +35,24 @@ body {
   width: 70%;
   height: 5vh;
 
+  max-width: 70%;
+  max-height: 5vh;
+
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
   padding: 10px;
+  font-size: 30px;
+
+  overflow: hidden;
+  border: 1px solid #ccc;
 }
 
 @media only screen and (max-width: 768px) {
   .container {
     width: 95%;
   }
-}
-
-.param {
-  margin-right: 5px;
-  margin-left: 5px;
-  font-size: 25px;
-  max-width: 100%;
-  word-wrap: break-word;
 }
 
 .keypads {
