@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <div className="wrapper-results">{NumberFormat(param)}</div>
+        <div className="result">{NumberFormat(param)}</div>
         <div className="keypads">
           {keypads.map((v, i) => (
             <div key={v}>
