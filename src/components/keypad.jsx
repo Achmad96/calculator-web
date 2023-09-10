@@ -2,6 +2,12 @@ const Keypad = props => {
   const { className, state, value } = props;
   const [param, setParam] = state;
   const handleBtn = key => {
+    if (param.length > 0 && isNaN(parseFloat(key)) && param[param.length - 1] === key) {
+      return;
+    } else if (param.length === 0 && isNaN(parseFloat(key)) && key !== "(") {
+      return;
+    }
+
     switch (key.toLowerCase()) {
       case "clear":
         setParam("");
@@ -13,7 +19,7 @@ const Keypad = props => {
       case "=":
         if (!param) return;
         try {
-          const result = eval(param.replaceAll("X", "*"));
+          const result = eval(param.replaceAll("x", "*"));
           setParam(result);
         } catch (e) {}
         break;
@@ -24,7 +30,7 @@ const Keypad = props => {
   };
 
   return (
-    <button onClick={e => handleBtn(e.target.value)} className={className} value={value}>
+    <button onClick={e => handleBtn(e.target.value.toLowerCase())} className={className} value={value.toLowerCase()}>
       {value}
     </button>
   );
