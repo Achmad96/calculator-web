@@ -10,18 +10,23 @@ function App() {
   const [keypads] = useState(["Del", "(", ")", "⇦", "+", "-", "X", "/", 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, ".", "="]);
   const ref = useRef(null);
 
-  const handleBtn = v => {
-    if (v === "Del") {
-      setParam("");
-    } else if (v === "⇦") {
-      setParam(param.substring(0, param.length - 1));
-    } else if (v === "=") {
-      try {
-        const result = eval(param.replaceAll("X", "*"));
-        setParam(result);
-      } catch (e) {}
-    } else {
-      setParam(prev => prev + v);
+  const handleBtn = key => {
+    switch (key.toLowerCase()) {
+      case "del":
+        setParam("");
+        break;
+      case "⇦":
+        setParam(param.substring(0, param.length - 1));
+        break;
+      case "=":
+        try {
+          const result = eval(param.replaceAll("X", "*"));
+          setParam(result);
+        } catch (e) {}
+        break;
+      default:
+        setParam(prev => prev + key);
+        break;
     }
   };
 
@@ -34,7 +39,7 @@ function App() {
             <div key={v}>
               <motion.div
                 ref={ref}
-                animate={{ scale: selected[v] ? 1.05 : 1 }}
+                animate={{ scale: selected[v] ? 1.07 : 1 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => {
                   setSelected({ [v]: i });
@@ -42,7 +47,7 @@ function App() {
                     setSelected({ [v]: undefined });
                   }, 500);
                 }}>
-                <Keypad className={`keypad-${i}`} click={e => handleBtn(e.target.value)} value={v} />
+                <Keypad className={`keypad-${i}`} click={e => handleBtn(e.target?.value)} value={v} />
               </motion.div>
             </div>
           ))}
