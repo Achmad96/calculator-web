@@ -4,6 +4,8 @@ const Keypad = props => {
   const handleBtn = key => {
     if (param.length > 0 && isNaN(parseFloat(key)) && param[param.length - 1] === key) {
       return;
+    } else if (param.length > 0 && isNaN(parseFloat(param[param.length - 1])) && !param.endsWith(")") && isNaN(key) && key !== "backspace" && key !== "=" && key !== "clear") {
+      return;
     } else if (param.length === 0 && isNaN(parseFloat(key)) && key !== "(") {
       return;
     }
@@ -14,7 +16,7 @@ const Keypad = props => {
         break;
       case "backspace":
         if (!param) return;
-        setParam(param.toString().substring(0, param.length - 1));
+        setParam(prevParam => prevParam.toString().substring(0, param.length - 1));
         break;
       case "=":
         if (!param) return;
