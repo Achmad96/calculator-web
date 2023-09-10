@@ -54,12 +54,13 @@ body {
 
 .keypads {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    "header header header header"
-    "main main main main"
-    "main main main main"
-    "footer footer footer footer";
+    "delete delete arrow arrow"
+    "tutupKurung1 tutupKurung2 plus minus"
+    "times divide modulus nine"
+    "eight seven six five"
+    "four three two one"
+    "zero dot equal equal";
   padding: 10px;
   border-radius: 10px;
   background-color: hsl(223, 31%, 20%);
@@ -82,33 +83,78 @@ button {
 
 .keypad-0 {
   color: white;
-  grid-area: header;
   background-color: hsl(6, 63%, 50%);
-  grid-column: 1/3;
+  border-bottom: hsl(6, 70%, 34%);
+  grid-area: delete;
 }
 
-.keypad-3,
-.keypad-19 {
+.keypad-1 {
+  grid-area: tutupKurung1;
+}
+
+.keypad-2 {
+  grid-area: tutupKurung2;
+}
+
+.keypad-3 {
   color: white;
   background-color: hsl(225, 21%, 49%);
+  border-bottom: hsl(224, 28%, 35%);
+  grid-area: arrow;
 }
 
-.keypad-4,
-.keypad-5,
-.keypad-6,
-.keypad-7,
-.keypad-8,
-.keypad-9,
-.keypad-10,
-.keypad-11,
-.keypad-12,
-.keypad-14,
-.keypad-15,
-.keypad-16,
-.keypad-17,
+.keypad-4 {
+  grid-area: plus;
+}
+.keypad-5 {
+  grid-area: minus;
+}
+.keypad-6 {
+  grid-area: times;
+}
+.keypad-7 {
+  grid-area: divide;
+}
+.keypad-8 {
+  grid-area: modulus;
+}
+.keypad-9 {
+  grid-area: nine;
+}
+.keypad-10 {
+  grid-area: eight;
+}
+.keypad-11 {
+  grid-area: seven;
+}
+.keypad-12 {
+  grid-area: six;
+}
+.keypad-13 {
+  grid-area: five;
+}
+.keypad-14 {
+  grid-area: four;
+}
+.keypad-15 {
+  grid-area: three;
+}
+.keypad-16 {
+  grid-area: two;
+}
+.keypad-17 {
+  grid-area: one;
+}
 .keypad-18 {
-  grid-area: main;
+  grid-area: zero;
 }
 .keypad-19 {
-  grid-area: footer;
+  grid-area: dot;
+}
+
+.keypad-20 {
+  color: white;
+  grid-area: equal;
+  background-color: hsl(225, 21%, 49%);
+  border-bottom: hsl(224, 28%, 35%);
 }

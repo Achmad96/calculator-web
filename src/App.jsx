@@ -1,56 +1,36 @@
 import "./App.css";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Keypad from "./components/keypad";
 import NumberFormat from "./utils/NumberFormat";
-import { motion } from "framer-motion";
 
 function App() {
   const [param, setParam] = useState("");
-  const [selected, setSelected] = useState({ name: "tes" });
-  const [keypads] = useState(["Del", "(", ")", "⇦", "+", "-", "X", "/", 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, ".", "="]);
-  const ref = useRef(null);
-
-  const handleBtn = key => {
-    switch (key.toLowerCase()) {
-      case "del":
-        setParam("");
-        break;
-      case "⇦":
-        setParam(param.substring(0, param.length - 1));
-        break;
-      case "=":
-        try {
-          const result = eval(param.replaceAll("X", "*"));
-          setParam(result);
-        } catch (e) {}
-        break;
-      default:
-        setParam(prev => prev + key);
-        break;
-    }
-  };
-
   return (
     <div className="App">
       <div className="container">
         <div className="result">{NumberFormat(param)}</div>
         <div className="keypads">
-          {keypads.map((v, i) => (
-            <div key={v}>
-              <motion.div
-                ref={ref}
-                animate={{ scale: selected[v] ? 1.07 : 1 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => {
-                  setSelected({ [v]: i });
-                  setTimeout(() => {
-                    setSelected({ [v]: undefined });
-                  }, 500);
-                }}>
-                <Keypad className={`keypad-${i}`} click={e => handleBtn(e.target?.value)} value={v} />
-              </motion.div>
-            </div>
-          ))}
+          <Keypad state={[param, setParam]} className="keypad-0" value="Clear" />
+          <Keypad state={[param, setParam]} className="keypad-1" value="(" />
+          <Keypad state={[param, setParam]} className="keypad-2" value=")" />
+          <Keypad state={[param, setParam]} className="keypad-3" value="⇦" />
+          <Keypad state={[param, setParam]} className="keypad-4" value="+" />
+          <Keypad state={[param, setParam]} className="keypad-5" value="-" />
+          <Keypad state={[param, setParam]} className="keypad-6" value="X" />
+          <Keypad state={[param, setParam]} className="keypad-7" value="/" />
+          <Keypad state={[param, setParam]} className="keypad-8" value="%" />
+          <Keypad state={[param, setParam]} className="keypad-9" value="9" />
+          <Keypad state={[param, setParam]} className="keypad-10" value="8" />
+          <Keypad state={[param, setParam]} className="keypad-11" value="7" />
+          <Keypad state={[param, setParam]} className="keypad-12" value="6" />
+          <Keypad state={[param, setParam]} className="keypad-13" value="5" />
+          <Keypad state={[param, setParam]} className="keypad-14" value="4" />
+          <Keypad state={[param, setParam]} className="keypad-15" value="3" />
+          <Keypad state={[param, setParam]} className="keypad-16" value="2" />
+          <Keypad state={[param, setParam]} className="keypad-17" value="1" />
+          <Keypad state={[param, setParam]} className="keypad-18" value="0" />
+          <Keypad state={[param, setParam]} className="keypad-19" value="." />
+          <Keypad state={[param, setParam]} className="keypad-20" value="=" />
         </div>
       </div>
     </div>
