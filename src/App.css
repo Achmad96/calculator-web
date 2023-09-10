@@ -28,29 +28,34 @@ body {
   align-items: center;
 }
 
+.wrapper-results {
+  background-color: hsl(224, 36%, 15%);
+  color: white;
+  border-radius: 5px;
+  min-width: 70%;
+  width: fit-content;
+  max-width: 100%;
+  height: 10vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     width: 95%;
   }
 }
 
-.wrapper-results {
-  background-color: hsl(224, 36%, 15%);
-  color: white;
-  border-radius: 5px;
-  width: 70%;
-  height: 10vh;
-  font-size: 35px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-}
-
 .param {
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
   font-size: 25px;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .keypads {

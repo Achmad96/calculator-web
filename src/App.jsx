@@ -14,8 +14,6 @@ function App() {
     } else if (param.length >= 20) {
       return;
     } else if (v === "=") {
-      // if ((!param.toString().startsWith("(") && isNaN(parseFloat(param[0]))) || isNaN(parseFloat(param[param.length - 1]))) return;
-      // if (param.toString().startsWith("0") && !param.toString().startsWith("0.")) return;
       try {
         const result = eval(param.replaceAll("X", "*"));
         setParam(result);
