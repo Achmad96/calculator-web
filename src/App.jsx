@@ -13,7 +13,7 @@ function App() {
           <Keypad state={[param, setParam]} className="keypad-0" value="Clear" />
           <Keypad state={[param, setParam]} className="keypad-1" value="(" />
           <Keypad state={[param, setParam]} className="keypad-2" value=")" />
-          <Keypad state={[param, setParam]} className="keypad-3" value="⇦" />
+          <Keypad state={[param, setParam]} className="keypad-3" value="Backspace" />
           <Keypad state={[param, setParam]} className="keypad-4" value="+" />
           <Keypad state={[param, setParam]} className="keypad-5" value="-" />
           <Keypad state={[param, setParam]} className="keypad-6" value="X" />

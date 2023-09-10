@@ -6,7 +6,7 @@ const Keypad = props => {
       case "clear":
         setParam("");
         break;
-      case "⇦":
+      case "backspace":
         if (!param) return;
         setParam(param.toString().substring(0, param.length - 1));
         break;
